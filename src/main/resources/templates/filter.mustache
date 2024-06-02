@@ -1,0 +1,20 @@
+<html lang="en">
+<body>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Text</th>
+        <th>Tag</th>
+    </tr>
+    {{#messages}}
+        <tr align="center">
+            <td>{{id}}</td>
+            <td>{{text}}</td>
+            <td>{{tag}}</td>
+        </tr>
+    {{/messages}}
+
+</table>
+<a href="/messages" role="button">Back</a>
+</body>
+</html>

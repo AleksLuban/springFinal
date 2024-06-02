@@ -1,0 +1,46 @@
+<html lang="en">
+<body>
+{{^cond}}
+    <H2>Hello, {{#name}}{{name}}{{/name}}!!!</H2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Text</th>
+            <th>Tag</th>
+        </tr>
+        {{#messages}}
+            <tr align="center">
+                <td>{{id}}</td>
+                <td>{{text}}</td>
+                <td>{{tag}}</td>
+            </tr>
+        {{/messages}}
+    </table>
+
+    <h4>Send your message: </h4>
+    <form action="/messages" method="post">
+        <label for="message">Message:
+            <input id="message" name="text" type="text">
+        </label>
+        <label for="tag">Tag:
+            <input type="text" name="tag" id="tag" value="{{#name}}{{name}}{{/name}}">
+        </label>
+        <input type="submit">
+    </form>
+
+    <h4>You can filter messages by tag: </h4>
+    <form action="/filter" method="post">
+        <label for="filter"> Filter
+            <input type="text" name="filter" id="filter">
+        </label>
+        <input type="submit">
+    </form>
+{{/cond}}
+{{#cond}}
+    {{^messages}}
+        <h2>{{#message}}{{message}}{{/message}}</h2>
+        <a href="/messages" role="button">Back</a>
+    {{/messages}}
+{{/cond}}
+</body>
+</html>
